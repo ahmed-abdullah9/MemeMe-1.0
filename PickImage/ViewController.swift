@@ -17,9 +17,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
 //    @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    
+//    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+//    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     struct Meme {
         var top: String!
@@ -28,14 +29,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var memedImage: UIImage!
     }
     
-    //make a global textField to keep reference
-    var currentTappedTextField : UITextField?
-    
     var memedImage: UIImage!
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.strokeWidth: -2.0,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
     ]
     
@@ -77,12 +76,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.textAlignment = .center
     }
     
-    // to get the tapped textField
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        currentTappedTextField = textField
-        return true
-    }
-    
     // the heigh of the keyboard when it shows
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         let userInfo = notification.userInfo
@@ -92,13 +85,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // show the keyboard on the screen
     @objc func keyboardWillShow(_ notification:Notification) {
-        if(currentTappedTextField == top){
-            view.frame.origin.y = 0
-        }
-        else{
-            if view.frame.origin.y == 0 {
-                view.frame.origin.y -= getKeyboardHeight(notification)
-            }
+        if(bottm.isFirstResponder){
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
@@ -179,14 +167,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage {
         
         self.toolBar.isHidden = true
-        self.navigationBar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         self.toolBar.isHidden = false
-        self.navigationBar.isHidden = true
 
         return memedImage
     }
