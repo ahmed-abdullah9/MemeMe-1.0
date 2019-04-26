@@ -11,11 +11,15 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
-    @IBOutlet weak var buttom: UITextField!
+    @IBOutlet weak var bottm: UITextField!
+//    @IBOutlet weak var top: UITextField!
     @IBOutlet weak var top: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var shareButton: UIButton!
+//    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     struct Meme {
         var top: String!
@@ -24,61 +28,59 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var memedImage: UIImage!
     }
     
+    //make a global textField to keep reference
+    var currentTappedTextField : UITextField?
+    
     var memedImage: UIImage!
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.strokeWidth: 2.0,
+        NSAttributedString.Key.strokeWidth: -2.0,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.buttom.delegate = self
-        buttom.text = "BUTTOM"
-        buttom.textAlignment = .center
-        buttom.defaultTextAttributes = memeTextAttributes
         
+        self.bottm.delegate = self        
         self.top.delegate = self
-        top.text = "TOP"
-        top.textAlignment = .center
-        top.defaultTextAttributes = memeTextAttributes
-        
+        prepareTextField(textField: top, defaultText:"TOP")
+        prepareTextField(textField: bottm, defaultText:"BUTTOM")
+
         if imagePickerView != nil {
             shareButton.isEnabled = false
         }
         else{
             shareButton.isEnabled = true
         }
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//            cameraButton.isEnabled = true
-//        } else {
-//            cameraButton.isEnabled = false
-//        }
-        
-//        if imagePickerView != nil {
-//            shareButton.isEnabled = false
-//        }
-//        else{
-//            shareButton.isEnabled = true
-//        }
-        
-
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            cameraButton.isEnabled = true
+        } else {
+            cameraButton.isEnabled = false
+        }
         subscribeToKeyboardNotifications()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    func prepareTextField(textField: UITextField, defaultText: String) {
+        textField.text = defaultText
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+    }
+    
+    // to get the tapped textField
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        currentTappedTextField = textField
+        return true
     }
     
     // the heigh of the keyboard when it shows
@@ -90,8 +92,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // show the keyboard on the screen
     @objc func keyboardWillShow(_ notification:Notification) {
-        if view.frame.origin.y == 0 {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+        if(currentTappedTextField == top){
+            view.frame.origin.y = 0
+        }
+        else{
+            if view.frame.origin.y == 0 {
+                view.frame.origin.y -= getKeyboardHeight(notification)
+            }
         }
     }
     
@@ -134,22 +141,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     // pic an image from library
     @IBAction func pickAnImage(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        pickImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
     }
     
     // pic an image from the camera
     @IBAction func pickAnImageFromCamera(_ sender: UIBarButtonItem) {
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            pickImage(sourceType: UIImagePickerController.SourceType.camera)
+        } else {
+                noCamera()
+            }
+    }
+    
+    func pickImage(sourceType: UIImagePickerController.SourceType){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
-        } else {
-            noCamera()
-        }
     }
     
     // check if the device has no camera!
@@ -164,21 +172,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // save the meme
     func save() {
-        _ = Meme(top: top.text!, bottom: buttom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        _ = Meme(top: top.text!, bottom: bottm.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
     
     // generate the meme image with the text
     func generateMemedImage() -> UIImage {
         
         self.toolBar.isHidden = true
-
+        self.navigationBar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         self.toolBar.isHidden = false
-        
+        self.navigationBar.isHidden = true
+
         return memedImage
     }
     
@@ -197,4 +206,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(Controller, animated: true, completion: nil)
     }
 }
-

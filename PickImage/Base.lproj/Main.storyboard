@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,87 +15,91 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PickImage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-nF-9p9">
-                                <rect key="frame" x="117.66666666666669" y="330" width="179" height="197"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="197" id="H0v-U6-Upr"/>
-                                    <constraint firstAttribute="width" constant="179" id="rGx-80-msl"/>
-                                </constraints>
+                                <rect key="frame" x="-2" y="62" width="324" height="462"/>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4M-Tt-GQ1">
+                                <rect key="frame" x="-2" y="18" width="324" height="44"/>
+                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHR-jc-crB">
-                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                                <rect key="frame" x="2" y="500" width="320" height="53"/>
                                 <items>
                                     <barButtonItem title="Pick" id="606-rL-d25">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="rTP-NW-EMr"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="From camera" id="rvt-a3-RQI">
+                                    <barButtonItem title="From camera" width="191" id="rvt-a3-RQI">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="vyf-qt-eOP"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Item" image="shareButton" id="w3o-7z-D3N" userLabel="Share">
+                                        <connections>
+                                            <action selector="share:" destination="BYZ-38-t0r" id="n8Z-yC-dfR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCO-tO-LIj">
+                                <rect key="frame" x="119" y="132" width="45" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zKO-33-cfG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Buttom" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecC-OZ-ObN">
-                                <rect key="frame" x="181" y="546" width="68" height="30"/>
+                                <rect key="frame" x="119" y="418" width="68" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5PQ-Qz-ZvA"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kTq-to-tRy">
-                                <rect key="frame" x="181" y="292" width="49" height="30"/>
-                                <accessibility key="accessibilityConfiguration" label="Commit">
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oij-sq-y1Z">
-                                <rect key="frame" x="325" y="68" width="40" height="43"/>
-                                <state key="normal" title="Share"/>
-                                <connections>
-                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ETj-Ha-Hri"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="UHR-jc-crB" secondAttribute="bottom" id="3Ti-Up-oBQ"/>
-                            <constraint firstItem="kTq-to-tRy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-141" id="5Ol-qg-Y1a"/>
-                            <constraint firstItem="8z2-nF-9p9" firstAttribute="top" secondItem="kTq-to-tRy" secondAttribute="bottom" constant="8" id="FmU-3Q-z2e"/>
-                            <constraint firstItem="Oij-sq-y1Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="138" id="KAI-4H-91m"/>
-                            <constraint firstItem="kTq-to-tRy" firstAttribute="firstBaseline" secondItem="Oij-sq-y1Z" secondAttribute="baseline" constant="203.99999999999997" id="L6P-Yf-dt6"/>
-                            <constraint firstItem="ecC-OZ-ObN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="113" id="MeB-qX-Afh"/>
-                            <constraint firstAttribute="trailing" secondItem="UHR-jc-crB" secondAttribute="trailing" id="UNR-L9-TMW"/>
-                            <constraint firstItem="Oij-sq-y1Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="ZVT-H1-jXa"/>
-                            <constraint firstItem="ecC-OZ-ObN" firstAttribute="top" secondItem="8z2-nF-9p9" secondAttribute="bottom" constant="19" id="bsd-oZ-BTj"/>
-                            <constraint firstItem="ecC-OZ-ObN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="8" id="fOb-sf-fMh"/>
-                            <constraint firstItem="8z2-nF-9p9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-19.5" id="mZS-xY-Fme" userLabel="Image Picker View.centerY = centerY"/>
-                            <constraint firstItem="8z2-nF-9p9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pEf-ny-Htp"/>
-                            <constraint firstItem="kTq-to-tRy" firstAttribute="leading" secondItem="ecC-OZ-ObN" secondAttribute="leading" id="s6F-2k-Xd4"/>
-                            <constraint firstItem="UHR-jc-crB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wVm-d2-etW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LCO-tO-LIj" secondAttribute="trailing" constant="156" id="4SB-Pf-fJu"/>
+                            <constraint firstItem="L4M-Tt-GQ1" firstAttribute="trailing" secondItem="8z2-nF-9p9" secondAttribute="trailing" id="9XR-3N-lrD"/>
+                            <constraint firstItem="8z2-nF-9p9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="9" id="DAZ-ca-5NY"/>
+                            <constraint firstItem="8z2-nF-9p9" firstAttribute="top" secondItem="L4M-Tt-GQ1" secondAttribute="bottom" id="DI2-sS-ood"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="L4M-Tt-GQ1" secondAttribute="top" constant="2" id="FAn-qH-Xk4" userLabel="Safe Area.top = Navigation Bar.top + 16"/>
+                            <constraint firstItem="LCO-tO-LIj" firstAttribute="top" secondItem="L4M-Tt-GQ1" secondAttribute="bottom" constant="70" id="HoS-CP-8fF"/>
+                            <constraint firstItem="8z2-nF-9p9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="2" id="YnU-Np-thr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UHR-jc-crB" secondAttribute="bottom" constant="-29" id="a8x-sK-Z45"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="8z2-nF-9p9" secondAttribute="leading" constant="2" id="bBy-Zw-9II"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="L4M-Tt-GQ1" secondAttribute="leading" constant="2" id="bDk-aL-mKc"/>
+                            <constraint firstItem="UHR-jc-crB" firstAttribute="top" secondItem="ecC-OZ-ObN" secondAttribute="bottom" constant="42" id="chh-Ed-BFI" userLabel="Tool Bar.top = Buttom.bottom + 111"/>
+                            <constraint firstItem="UHR-jc-crB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="2" id="g4D-QG-nUA" userLabel="trailing  = Tool Bar.trailing "/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ecC-OZ-ObN" secondAttribute="trailing" constant="133" id="gC9-Fs-Syx" userLabel="Safe Area.trailing = Buttom.trailing + 172"/>
+                            <constraint firstItem="UHR-jc-crB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="wMM-Cw-L5J" userLabel="Tool Bar.leading = leading"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="buttom" destination="ecC-OZ-ObN" id="f2o-ZH-tA5"/>
+                        <outlet property="bottm" destination="ecC-OZ-ObN" id="f2o-ZH-tA5"/>
                         <outlet property="cameraButton" destination="rvt-a3-RQI" id="U1b-gc-rZJ"/>
                         <outlet property="imagePickerView" destination="8z2-nF-9p9" id="PFQ-5C-kJ5"/>
-                        <outlet property="shareButton" destination="Oij-sq-y1Z" id="evm-Ty-aPK"/>
+                        <outlet property="navigationBar" destination="L4M-Tt-GQ1" id="JWz-j5-bSM"/>
+                        <outlet property="shareButton" destination="w3o-7z-D3N" id="6IO-8K-pXx"/>
                         <outlet property="toolBar" destination="UHR-jc-crB" id="bVS-74-ckq"/>
-                        <outlet property="top" destination="kTq-to-tRy" id="VuZ-QP-9rK"/>
+                        <outlet property="top" destination="LCO-tO-LIj" id="Izq-hE-iBZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.623188405797109" y="21.428571428571427"/>
+            <point key="canvasLocation" x="35.625" y="7.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="shareButton" width="38" height="53"/>
+    </resources>
 </document>
