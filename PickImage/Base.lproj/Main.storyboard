@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="landscape">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PickImage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-nF-9p9">
-                                <rect key="frame" x="42" y="88" width="812" height="256"/>
+                                <rect key="frame" x="-2" y="101" width="418" height="712"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHR-jc-crB">
-                                <rect key="frame" x="46" y="324" width="808" height="49"/>
+                                <rect key="frame" x="2" y="769" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Pick" id="606-rL-d25">
                                         <connections>
@@ -37,7 +37,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCO-tO-LIj">
-                                <rect key="frame" x="200" y="112" width="28" height="40"/>
+                                <rect key="frame" x="16" y="156" width="382" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zKO-33-cfG"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfL-BS-5ve">
-                                <rect key="frame" x="42" y="-482" width="1294" height="44"/>
+                                <rect key="frame" x="-2" y="44" width="418" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="dtW-b7-Twy" userLabel="share">
                                         <connections>
@@ -56,7 +56,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Buttom" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecC-OZ-ObN">
-                                <rect key="frame" x="177" y="242" width="51" height="40"/>
+                                <rect key="frame" x="16" y="687" width="382" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5PQ-Qz-ZvA"/>
                                 </constraints>
@@ -71,14 +71,16 @@
                             <constraint firstItem="8z2-nF-9p9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="9" id="DAZ-ca-5NY"/>
                             <constraint firstItem="vfL-BS-5ve" firstAttribute="trailing" secondItem="8z2-nF-9p9" secondAttribute="trailing" id="JJ4-mX-aKs"/>
                             <constraint firstItem="LCO-tO-LIj" firstAttribute="top" secondItem="vfL-BS-5ve" secondAttribute="bottom" constant="68" id="Sdh-vj-WBD"/>
+                            <constraint firstItem="LCO-tO-LIj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="UFx-fW-mRD"/>
                             <constraint firstItem="8z2-nF-9p9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WX1-jw-1YV"/>
                             <constraint firstItem="8z2-nF-9p9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="2" id="YnU-Np-thr"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="UHR-jc-crB" secondAttribute="bottom" constant="-29" id="a8x-sK-Z45"/>
+                            <constraint firstItem="ecC-OZ-ObN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZVp-mg-Wmv"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UHR-jc-crB" secondAttribute="bottom" id="a8x-sK-Z45"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="8z2-nF-9p9" secondAttribute="leading" constant="2" id="bBy-Zw-9II"/>
                             <constraint firstItem="UHR-jc-crB" firstAttribute="top" secondItem="ecC-OZ-ObN" secondAttribute="bottom" constant="42" id="chh-Ed-BFI" userLabel="Tool Bar.top = Buttom.bottom + 111"/>
                             <constraint firstItem="UHR-jc-crB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="2" id="g4D-QG-nUA" userLabel="trailing  = Tool Bar.trailing "/>
-                            <constraint firstItem="LCO-tO-LIj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="156" id="h97-QQ-One"/>
-                            <constraint firstItem="ecC-OZ-ObN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="133" id="hhq-Lu-DhP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ecC-OZ-ObN" secondAttribute="trailing" constant="16" id="hBQ-Z2-cVC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LCO-tO-LIj" secondAttribute="trailing" constant="16" id="hyE-lr-3h4"/>
                             <constraint firstItem="vfL-BS-5ve" firstAttribute="leading" secondItem="8z2-nF-9p9" secondAttribute="leading" id="wFp-kO-2c9"/>
                             <constraint firstItem="UHR-jc-crB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="wMM-Cw-L5J" userLabel="Tool Bar.leading = leading"/>
                         </constraints>
@@ -88,11 +90,12 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottm" destination="ecC-OZ-ObN" id="f2o-ZH-tA5"/>
+                        <outlet property="bottmToolBar" destination="UHR-jc-crB" id="bVS-74-ckq"/>
                         <outlet property="cameraButton" destination="rvt-a3-RQI" id="U1b-gc-rZJ"/>
                         <outlet property="imagePickerView" destination="8z2-nF-9p9" id="PFQ-5C-kJ5"/>
                         <outlet property="shareButton" destination="dtW-b7-Twy" id="FZF-an-Je1"/>
-                        <outlet property="toolBar" destination="UHR-jc-crB" id="bVS-74-ckq"/>
                         <outlet property="top" destination="LCO-tO-LIj" id="Izq-hE-iBZ"/>
+                        <outlet property="topToolBar" destination="vfL-BS-5ve" id="9tQ-KH-jA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

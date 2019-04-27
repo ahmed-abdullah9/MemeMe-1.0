@@ -9,19 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-
+    
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var bottm: UITextField!
-//    @IBOutlet weak var top: UITextField!
     @IBOutlet weak var top: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var toolBar: UIToolbar!
-//    @IBOutlet weak var shareButton: UIBarButtonItem!
-//    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var bottmToolBar: UIToolbar!
+    @IBOutlet weak var topToolBar: UIToolbar!
+    
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    
-//    @IBOutlet weak var shareButton: UIBarButtonItem!
-    
+
     struct Meme {
         var top: String!
         var bottom: String!
@@ -45,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.top.delegate = self
         prepareTextField(textField: top, defaultText:"TOP")
         prepareTextField(textField: bottm, defaultText:"BUTTOM")
-
+        
         if imagePickerView != nil {
             shareButton.isEnabled = false
         }
@@ -64,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         subscribeToKeyboardNotifications()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
@@ -102,7 +99,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // hide the keyboard
     @objc func keyboardWillHide(_ notification:Notification) {
-         view.frame.origin.y = 0;
+        view.frame.origin.y = 0;
     }
     
     // to return the keyboard and show the original screen
@@ -115,8 +112,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // put the image on the screen
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-        imagePickerView.image = pickedImage
-        shareButton.isEnabled = true
+            imagePickerView.image = pickedImage
+            shareButton.isEnabled = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -126,7 +123,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     // pic an image from library
     @IBAction func pickAnImage(_ sender: Any) {
         pickImage(sourceType: UIImagePickerController.SourceType.photoLibrary)
@@ -137,8 +134,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
             pickImage(sourceType: UIImagePickerController.SourceType.camera)
         } else {
-                noCamera()
-            }
+            noCamera()
+        }
     }
     
     func pickImage(sourceType: UIImagePickerController.SourceType){
@@ -166,15 +163,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // generate the meme image with the text
     func generateMemedImage() -> UIImage {
         
-        self.toolBar.isHidden = true
+        hideToolbars(true)
+        
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        self.toolBar.isHidden = false
-
+        hideToolbars(false)
+        
         return memedImage
+    }
+    
+    func hideToolbars(_ hide: Bool) {
+        self.bottmToolBar.isHidden = hide
+        self.topToolBar.isHidden = hide
+
     }
     
     // share the meme app to other devices
@@ -184,7 +188,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         Controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
-
+                
                 return
             }
             self.save()
