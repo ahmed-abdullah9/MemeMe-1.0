@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A20B23DE226A658500260F49 /* PickImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20B23DE226A658500260F49 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20B23E1226A658500260F49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20B23E3226A658500260F49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A20B23E6226A658500260F49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		A20B23D5226A658500260F49 = {
 			isa = PBXGroup;
 			children = (
-				A20B23E0226A658500260F49 /* PickImage */,
+				A20B23E0226A658500260F49 /* MemeMe */,
 				A20B23DF226A658500260F49 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		A20B23DF226A658500260F49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A20B23DE226A658500260F49 /* PickImage.app */,
+				A20B23DE226A658500260F49 /* MemeMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A20B23E0226A658500260F49 /* PickImage */ = {
+		A20B23E0226A658500260F49 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
 				A20B23E1226A658500260F49 /* AppDelegate.swift */,
@@ -61,15 +61,15 @@
 				A20B23EA226A658800260F49 /* LaunchScreen.storyboard */,
 				A20B23ED226A658800260F49 /* Info.plist */,
 			);
-			path = PickImage;
+			path = MemeMe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A20B23DD226A658500260F49 /* PickImage */ = {
+		A20B23DD226A658500260F49 /* MemeMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A20B23F0226A658800260F49 /* Build configuration list for PBXNativeTarget "PickImage" */;
+			buildConfigurationList = A20B23F0226A658800260F49 /* Build configuration list for PBXNativeTarget "MemeMe" */;
 			buildPhases = (
 				A20B23DA226A658500260F49 /* Sources */,
 				A20B23DB226A658500260F49 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = PickImage;
+			name = MemeMe;
 			productName = PickImage;
-			productReference = A20B23DE226A658500260F49 /* PickImage.app */;
+			productReference = A20B23DE226A658500260F49 /* MemeMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A20B23D9226A658500260F49 /* Build configuration list for PBXProject "PickImage" */;
+			buildConfigurationList = A20B23D9226A658500260F49 /* Build configuration list for PBXProject "MemeMe" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A20B23DD226A658500260F49 /* PickImage */,
+				A20B23DD226A658500260F49 /* MemeMe */,
 			);
 		};
 /* End PBXProject section */
@@ -288,7 +288,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ahmed.PickImage;
+				PRODUCT_BUNDLE_IDENTIFIER = ahmed.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,7 +305,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ahmed.PickImage;
+				PRODUCT_BUNDLE_IDENTIFIER = ahmed.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A20B23D9226A658500260F49 /* Build configuration list for PBXProject "PickImage" */ = {
+		A20B23D9226A658500260F49 /* Build configuration list for PBXProject "MemeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A20B23EE226A658800260F49 /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A20B23F0226A658800260F49 /* Build configuration list for PBXNativeTarget "PickImage" */ = {
+		A20B23F0226A658800260F49 /* Build configuration list for PBXNativeTarget "MemeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A20B23F1226A658800260F49 /* Debug */,
