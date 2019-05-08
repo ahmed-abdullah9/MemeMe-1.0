@@ -18,13 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topToolBar: UIToolbar!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
-
-    struct Meme {
-        var top: String!
-        var bottom: String!
-        var originalImage: UIImage!
-        var memedImage: UIImage!
-    }
     
     var memedImage: UIImage!
     
