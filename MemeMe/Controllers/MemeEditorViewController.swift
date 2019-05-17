@@ -16,7 +16,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var bottmToolBar: UIToolbar!
     @IBOutlet weak var topToolBar: UIToolbar!
-    
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var memedImage: UIImage!
@@ -150,7 +149,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // save the meme
     func save() {
-        _ = Meme(top: top.text!, bottom: bottm.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let meme = Meme(top: top.text!, bottom: bottm.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
     }
     
     // generate the meme image with the text
@@ -180,12 +185,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let Controller = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
         
         Controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            if !completed {
-                
-                return
+            if completed {
+                self.save()
+                self.dismiss(animated: true, completion: nil)
             }
-            self.save()
         }
+
         present(Controller, animated: true, completion: nil)
     }
 }

@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		A20B23E2226A658500260F49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B23E1226A658500260F49 /* AppDelegate.swift */; };
-		A20B23E4226A658500260F49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B23E3226A658500260F49 /* ViewController.swift */; };
+		A20B23E4226A658500260F49 /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B23E3226A658500260F49 /* MemeEditorViewController.swift */; };
 		A20B23E7226A658500260F49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20B23E5226A658500260F49 /* Main.storyboard */; };
 		A20B23E9226A658800260F49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20B23E8226A658800260F49 /* Assets.xcassets */; };
 		A20B23EC226A658800260F49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20B23EA226A658800260F49 /* LaunchScreen.storyboard */; };
+		A2689F2F228EC61700D1C6BE /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2689F2E228EC61700D1C6BE /* MemeTableViewController.swift */; };
 		A2F221CF2282F0D800932B05 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F221CE2282F0D800932B05 /* Meme.swift */; };
+		A2F221D12282F3CB00932B05 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F221D02282F3CB00932B05 /* MemeCollectionViewController.swift */; };
+		A2F221D5228921A500932B05 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F221D4228921A500932B05 /* MemeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A20B23DE226A658500260F49 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20B23E1226A658500260F49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A20B23E3226A658500260F49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A20B23E3226A658500260F49 /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
 		A20B23E6226A658500260F49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A20B23E8226A658800260F49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20B23EB226A658800260F49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A20B23ED226A658800260F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2689F2E228EC61700D1C6BE /* MemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 		A2F221CE2282F0D800932B05 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		A2F221D02282F3CB00932B05 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
+		A2F221D4228921A500932B05 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +82,10 @@
 		A2F221C92282EF2000932B05 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A20B23E3226A658500260F49 /* ViewController.swift */,
+				A20B23E3226A658500260F49 /* MemeEditorViewController.swift */,
+				A2F221D02282F3CB00932B05 /* MemeCollectionViewController.swift */,
+				A2F221D4228921A500932B05 /* MemeCollectionViewCell.swift */,
+				A2689F2E228EC61700D1C6BE /* MemeTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,8 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2F221D5228921A500932B05 /* MemeCollectionViewCell.swift in Sources */,
+				A2F221D12282F3CB00932B05 /* MemeCollectionViewController.swift in Sources */,
 				A2F221CF2282F0D800932B05 /* Meme.swift in Sources */,
-				A20B23E4226A658500260F49 /* ViewController.swift in Sources */,
+				A2689F2F228EC61700D1C6BE /* MemeTableViewController.swift in Sources */,
+				A20B23E4226A658500260F49 /* MemeEditorViewController.swift in Sources */,
 				A20B23E2226A658500260F49 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +330,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GX2RGS4Q6L;
 				INFOPLIST_FILE = "$(SRCROOT)/MemeMe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -326,6 +340,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ahmed.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,7 +350,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GX2RGS4Q6L;
 				INFOPLIST_FILE = "$(SRCROOT)/MemeMe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -343,6 +360,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ahmed.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
