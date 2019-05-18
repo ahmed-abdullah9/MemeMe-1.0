@@ -19,7 +19,6 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("The meme values is ",  memes!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,5 +50,13 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
+    }
+
 }
 

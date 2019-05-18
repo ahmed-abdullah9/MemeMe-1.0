@@ -22,7 +22,6 @@ class MemeCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("The meme values is ",  memes!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,5 +45,13 @@ class MemeCollectionViewController: UICollectionViewController {
         cell.memeImageView?.image = meme.memedImage
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+                
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
+
     }
 }

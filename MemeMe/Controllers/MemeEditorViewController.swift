@@ -187,10 +187,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         Controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if completed {
                 self.save()
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss()
             }
         }
 
         present(Controller, animated: true, completion: nil)
     }
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss()
+    }
+    
+    func dismiss() {
+         self.dismiss(animated: true, completion: nil)
+    }
+    
 }
